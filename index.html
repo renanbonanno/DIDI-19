@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <!-- [EDITAR AQUI] Título da aba do navegador -->
+  <title>Feliz Aniversário, Meu Amor! • Celebrando Sua Vida</title>
+  <meta name="description" content="Uma página especial para celebrar a sua vida, a sua luz e todas as suas conquistas." />
+  <meta name="theme-color" content="#020617" />
+
+  <!-- Google Fonts: Playfair Display (Editorial Serif) & Inter/Roboto (Sans-serif de leitura) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Estilos Personalizados (Premium Clean: Azul Marinho & Rubi) -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body class="min-h-screen bg-slate-950 text-slate-200 font-sans antialiased selection:bg-rose-700 selection:text-slate-100">
+
+  <!-- Linha Superior Hairline em Vermelho Rubi Sólido -->
+  <div class="fixed top-0 left-0 right-0 h-0.5 bg-rose-700 z-50"></div>
+
+  <!-- Canvas para Chuva de Elementos no Final (disparado ao abrir a Carta) -->
+  <canvas id="celebration-canvas" class="fixed inset-0 pointer-events-none z-[70]"></canvas>
+
+  <!-- ========================================================================
+       MENU DE NAVEGAÇÃO RÁPIDA (FLAT & EDITORIAL - AZUL MARINHO & RUBI)
+       ======================================================================== -->
+  <!-- <header class="sticky top-0.5 z-40 bg-slate-950 border-b border-slate-800">
+    <nav class="max-w-xl mx-auto px-3 py-3 flex items-center justify-between text-xs font-medium text-slate-400">
+      <a href="#inicio" class="px-3 py-1.5 rounded-full hover:bg-slate-900 hover:text-slate-200 transition-colors flex items-center gap-2 font-semibold text-slate-200">
+        <span class="w-2 h-2 rounded-full bg-rose-700"></span>
+        <span>Início</span>
+      </a>
+      <a href="#trilha-sonora" class="px-2.5 py-1.5 rounded-full hover:bg-slate-900 hover:text-slate-200 transition-colors">
+        Música
+      </a>
+      <a href="#conquistas" class="px-2.5 py-1.5 rounded-full hover:bg-slate-900 hover:text-slate-200 transition-colors">
+        19 Anos
+      </a>
+      <a href="#recados" class="px-2.5 py-1.5 rounded-full hover:bg-slate-900 hover:text-slate-200 transition-colors">
+        Amigos
+      </a>
+      <a href="#surpresa" class="px-3.5 py-1.5 rounded-full bg-rose-700 text-slate-100 font-semibold hover:bg-rose-800 transition-colors">
+        Carta
+      </a>
+    </nav>
+  </header> -->
+
+  <main class="max-w-xl mx-auto px-4 sm:px-6 pb-20">
+
+    <!-- ======================================================================
+         1. CAPA COMEMORATIVA (HERO SECTION - PREMIUM CLEAN)
+         ====================================================================== -->
+    <section id="inicio" class="relative pt-10 pb-12 text-center overflow-hidden">
+
+      <!-- Elementos decorativos sutis e Flat em Rubi e Slate -->
+      <!-- Balão Esquerdo (Rubi Sólido #be123c) -->
+      <div class="pointer-events-none absolute top-8 left-2 sm:left-5 animate-balloon-1 opacity-80" aria-hidden="true">
+        <svg width="40" height="80" viewBox="0 0 54 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="27" cy="28" rx="20" ry="24" fill="#be123c" />
+          <polygon points="24,52 30,52 27,48" fill="#be123c" />
+          <path d="M27 52 C 23 68, 32 78, 26 95" stroke="#334155" stroke-width="1.2" stroke-linecap="round" fill="none" />
+        </svg>
+      </div>
+
+      <!-- Balão Direito (Azul Marinho Card #0f172a com borda Rubi) -->
+      <div class="pointer-events-none absolute top-10 right-2 sm:right-5 animate-balloon-2 opacity-80" aria-hidden="true">
+        <svg width="38" height="78" viewBox="0 0 54 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="27" cy="28" rx="19" ry="23" fill="#0f172a" stroke="#be123c" stroke-width="2" />
+          <polygon points="24,52 30,52 27,48" fill="#be123c" />
+          <path d="M27 52 C 31 66, 22 78, 28 94" stroke="#334155" stroke-width="1.2" stroke-linecap="round" fill="none" />
+        </svg>
+      </div>
+
+      <!-- Tag Editorial Superior -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 mb-7">
+        <span class="w-1.5 h-1.5 rounded-full bg-rose-700"></span>
+        <span class="text-[11px] font-semibold uppercase tracking-widest text-slate-300">
+          23 de Novembro • Edição Comemorativa
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-rose-700"></span>
+      </div>
+
+      <!-- FOTO PRINCIPAL DELA EM DESTAQUE CIRCULAR (FLAT) -->
+      <div class="relative w-44 h-44 sm:w-52 sm:h-52 mx-auto mb-7">
+        <div class="relative w-full h-full rounded-full p-1.5 bg-slate-900 border border-slate-800">
+          <!-- Detalhe de anel fino Rubi -->
+          <div class="w-full h-full rounded-full p-1 border border-rose-700">
+            <!-- [EDITAR AQUI] Foto principal dela ajustada e centralizada no rosto -->
+            <img
+              src="./assets/img/foto-principal.jpeg"
+              alt="Foto principal da aniversariante"
+              class="w-full h-full object-cover object-[center_22%] rounded-full"
+            />
+          </div>
+        </div>
+
+        <!-- Selo Flutuante Flat na Base da Foto -->
+        <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-slate-900 px-4 py-1 rounded-full border border-slate-800 flex items-center gap-2 whitespace-nowrap">
+          <span class="w-2 h-2 rounded-full bg-rose-700"></span>
+          <!-- [EDITAR AQUI] Nome ou apelido dela no selo da foto -->
+          <span class="text-xs font-semibold text-slate-200 tracking-wide">19 Anos • A Dona do Dia</span>
+        </div>
+      </div>
+
+      <!-- TÍTULO PRINCIPAL (TIPOGRAFIA EDITORIAL PLAYFAIR DISPLAY) -->
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-slate-100 tracking-tight leading-tight px-2 mt-6">
+        Feliz Aniversário, <span class="italic font-normal text-rose-500">Meu Amor!</span>
+      </h1>
+
+      <!-- [EDITAR AQUI] Mensagem curta de abertura na Hero Section -->
+      <p class="mt-3 text-sm sm:text-base text-slate-400 max-w-md mx-auto leading-relaxed px-2">
+        Hoje celebramos a mulher incrível, forte, doce e brilhante que você é. Que este novo ciclo seja tão extraordinário quanto a luz que você espalha por onde passa.
+      </p>
+
+      <!-- ====================================================================
+           CONTADOR EM TEMPO REAL ("CELEBRANDO SEUS DIAS DE VIDA")
+           Data configurada: 23 de Novembro de 2007 (2007-11-23T00:00:00)
+           ==================================================================== -->
+      <div
+        id="life-counter-box"
+        data-birthdate="2007-11-23T00:00:00"
+        class="mt-8 bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-800"
+      >
+        <div class="flex items-center justify-center gap-2.5 mb-4">
+          <span class="h-px w-6 bg-slate-800"></span>
+          <h2 class="font-serif text-sm sm:text-base font-semibold tracking-wide text-slate-200">
+            Celebrando seus dias de vida
+          </h2>
+          <span class="h-px w-6 bg-slate-800"></span>
+        </div>
+
+        <!-- Grade do Contador Flat (Azul Marinho & Rubi) -->
+        <div class="grid grid-cols-4 gap-2.5 sm:gap-3">
+          <!-- Dias -->
+          <div class="bg-slate-950 rounded-xl py-3 px-1.5 border border-slate-800 border-t-2 border-t-rose-700">
+            <span id="counter-days" class="block text-xl sm:text-2xl font-bold text-slate-100 tracking-tight">
+              0
+            </span>
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mt-0.5 block">
+              Dias
+            </span>
+          </div>
+
+          <!-- Horas -->
+          <div class="bg-slate-950 rounded-xl py-3 px-1.5 border border-slate-800 border-t-2 border-t-rose-700">
+            <span id="counter-hours" class="block text-xl sm:text-2xl font-bold text-slate-100 tracking-tight">
+              00
+            </span>
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mt-0.5 block">
+              Horas
+            </span>
+          </div>
+
+          <!-- Minutos -->
+          <div class="bg-slate-950 rounded-xl py-3 px-1.5 border border-slate-800 border-t-2 border-t-rose-700">
+            <span id="counter-minutes" class="block text-xl sm:text-2xl font-bold text-slate-100 tracking-tight">
+              00
+            </span>
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mt-0.5 block">
+              Min
+            </span>
+          </div>
+
+          <!-- Segundos -->
+          <div class="bg-slate-950 rounded-xl py-3 px-1.5 border border-slate-800 border-t-2 border-t-rose-700">
+            <span id="counter-seconds" class="block text-xl sm:text-2xl font-bold text-rose-500 tracking-tight">
+              00
+            </span>
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mt-0.5 block">
+              Seg
+            </span>
+          </div>
+        </div>
+
+        <!-- Linha complementar calculada automaticamente pelo JS -->
+        <p id="counter-age-summary" class="mt-4 text-xs font-medium text-slate-400">
+          Calculando cada segundo da sua jornada...
+        </p>
+      </div>
+
+      <!-- Indicador suave para rolar a tela -->
+      <div class="mt-7">
+        <a
+          href="#trilha-sonora"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-slate-300 hover:border-rose-700 hover:text-slate-100 transition-colors"
+        >
+          <span>Explorar sua história</span>
+          <svg class="w-4 h-4 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. SUA TRILHA SONORA (PLAYER PRÓPRIO INTERATIVO EM HTML5 AUDIO)
+         ====================================================================== -->
+    <section id="trilha-sonora" class="py-10 reveal">
+      <div class="text-center mb-6">
+        <span class="text-[11px] font-semibold uppercase tracking-widest text-rose-500 block mb-1">
+          Curadoria Musical
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+          Sua Trilha Sonora
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-md mx-auto">
+          As músicas que têm a sua energia e embalam os seus melhores momentos.
+        </p>
+      </div>
+
+      <!-- Card Principal do Player (Flat Slate-900 Card) -->
+      <div class="bg-slate-900 rounded-2xl p-5 sm:p-6 border border-slate-800">
+        <!-- Elemento de Áudio Nativo HTML5 -->
+        <audio id="audio-player" preload="metadata"></audio>
+
+        <!-- Topo do Player: Capa + Info da Faixa Atual -->
+        <div class="flex items-center gap-4">
+          <div
+            id="player-cover-wrapper"
+            class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 border border-slate-800 transition-colors duration-300"
+          >
+            <img
+              id="player-cover"
+              src="./assets/img/capa01.png"
+              alt="Capa da música"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <!-- Badge de Status + Equalizador Animado Rubi -->
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-950 border border-slate-800 mb-2">
+              <div id="player-equalizer" class="flex items-end gap-0.5 h-3.5">
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+                <span class="eq-bar"></span>
+              </div>
+              <span id="player-status-text" class="text-[11px] font-semibold text-slate-300">
+                Pronto para tocar
+              </span>
+            </div>
+
+            <div id="player-title-wrapper" class="marquee-wrapper">
+              <h3 id="player-title" class="marquee-inner font-serif font-bold text-base sm:text-lg text-slate-100">
+                Não é assim com as outras pessoas
+              </h3>
+            </div>
+            <p id="player-artist" class="text-xs sm:text-sm text-slate-400 truncate mt-0.5">
+              Ivy - Frank Ocean
+            </p>
+          </div>
+        </div>
+
+        <!-- Barra de Progresso Interativa -->
+        <div class="mt-5">
+          <input
+            id="player-progress"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            step="0.1"
+            aria-label="Progresso da música"
+            class="audio-range"
+          />
+          <div class="flex justify-between text-[11px] font-semibold text-slate-400 mt-1.5">
+            <span id="player-current-time">0:00</span>
+            <span id="player-duration">0:00</span>
+          </div>
+        </div>
+
+        <!-- Botões de Controle: Anterior, Play/Pause, Próxima (Flat Rubi) -->
+        <div class="mt-3 flex items-center justify-center gap-5">
+          <!-- Botão Anterior -->
+          <button
+            id="btn-prev"
+            type="button"
+            aria-label="Música anterior"
+            class="w-11 h-11 rounded-full bg-slate-950 hover:bg-slate-800 active:scale-95 text-slate-200 flex items-center justify-center transition-colors border border-slate-800"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
+            </svg>
+          </button>
+
+          <!-- Botão Principal Play / Pause (Vermelho Rubi Sólido bg-rose-700) -->
+          <button
+            id="btn-play-pause"
+            type="button"
+            aria-label="Tocar ou pausar música"
+            class="w-14 h-14 rounded-full bg-rose-700 hover:bg-rose-800 text-slate-100 flex items-center justify-center active:scale-95 transition-colors"
+          >
+            <!-- Ícone Play -->
+            <svg id="icon-play" class="w-7 h-7 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <!-- Ícone Pause -->
+            <svg id="icon-pause" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          </button>
+
+          <!-- Botão Próxima -->
+          <button
+            id="btn-next"
+            type="button"
+            aria-label="Próxima música"
+            class="w-11 h-11 rounded-full bg-slate-950 hover:bg-slate-800 active:scale-95 text-slate-200 flex items-center justify-center transition-colors border border-slate-800"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Lista Clicável das 5 Músicas (gerada automaticamente pelo js/script.js a partir de const songs) -->
+        <div class="mt-6 pt-5 border-t border-slate-800">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">
+              Faixas Selecionadas (Toque para ouvir)
+            </span>
+            <span class="text-[11px] font-semibold text-rose-500">
+              Reprodução contínua ♪
+            </span>
+          </div>
+
+          <div id="playlist-items" class="space-y-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. SUA RETROSPECTIVA DE 19 ANOS (LINHA DO TEMPO CENTRAL INTERCALADA)
+         ====================================================================== -->
+    <section id="conquistas" class="py-12">
+      <div class="text-center mb-8 reveal">
+        <span class="text-[11px] font-semibold uppercase tracking-widest text-rose-500 block mb-1">
+          Linha do Tempo • 2007 a 2026
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+          Sua Retrospectiva e Conquistas
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-md mx-auto">
+          Do nascimento aos 19 anos: toque em qualquer card abaixo para ampliar a foto e ler a história completa de cada ano.
+        </p>
+      </div>
+
+           <div class="relative py-2">
+               <div
+          class="timeline-line absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-px bg-rose-700 pointer-events-none"
+          aria-hidden="true"
+        ></div>
+
+               <div id="timeline-19-items" class="relative flex flex-col gap-3 sm:gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. RECADOS DE QUEM TE AMA 
+         ====================================================================== -->
+    <section id="recados" class="py-12">
+      <div class="text-center mb-6 reveal">
+        <span class="text-[11px] font-semibold uppercase tracking-widest text-rose-500 block mb-1">
+          Depoimentos Especiais
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+          Recados de Quem Te Ama
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-md mx-auto">
+          Mensagens de pessoas que se importa com você.
+        </p>
+      </div>
+
+      <div class="reveal">
+
+        <div 
+          id="friends-avatars-bar"
+          class="flex items-center justify-center gap-4 sm:gap-7 py-2 px-2 mb-3 select-none"
+          aria-label="Selecionar recado por pessoa"
+        ></div>
+
+        
+        <div id="friends-carousel-wrapper" class="relative">
+
+         
+          <div id="friends-progress-wrapper" class="w-full h-1 bg-slate-900 rounded-full overflow-hidden mb-3 border border-slate-800">
+            <div
+              id="friends-autoplay-progress"
+              class="h-full bg-rose-700 transition-all duration-100"
+              style="width: 0%"
+            ></div>
+          </div>
+
+          <!-- Palco dos Cards: Exibe 3 mensagens por vez; clique em qualquer uma para abrir e ampliar a foto -->
+          <div id="friends-cards-track" class="relative touch-pan-y flex flex-col gap-3">
+
+            <!-- =================
+                 1. ALICE 
+                 =================-->
+            <article class="friend-card-item is-active bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Alice.jpeg"
+                    alt="Alice"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Alice
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Degaspare, você sempre foi uma menina incrível e desde que conversamos pela primeira vez no oitavo ano só confirmou isso, você é uma amiga muito especial para mim e é aquela que me apresentou a maior diva do nosso mundo: Taylor Swift. Mesmo em escolas e faculdades separadas eu sei que você é uma pessoa que eu posso contar a todo momento, vou sempre levar nossa amizade no meu coração. Te amo demais prin!!! 💗
+              </p>
+            </article>
+
+            <!-- =================
+                 2. SISI 
+                 ================= -->
+            <article class="friend-card-item is-active stagger-1 bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/sisi.jpeg"
+                    alt="Sisi"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Sisi
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Didi, vc é uma menina incrível, sou grata todos os dias por acompanhar o seu sucesso (mesmo que de longe) e espero que vc conquiste muito mais. parabéns miga, te amo muito mesmo 🫶
+              </p>
+            </article>
+
+            <!-- =================
+                 3. SAMIA 
+                 =================-->
+            <article class="friend-card-item is-active stagger-2 bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/samia.jpeg"
+                    alt="Samia"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Samia
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               Isa, espero que a vida te surpreenda de maneiras lindas e que esse novo ciclo seja cheio de coisas boas. que você continue conquistando tudo aquilo que deseja, realizando seus sonhos e sendo muito feliz em tudo o que fizer. te amo!!! 🩷              </p>
+            </article>
+
+            <!-- ================
+                 4. LU 
+                 ================-->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/lu.jpeg"
+                    alt="Lu"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Lu
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               Parabénssss isa!! Adorei te conhecer, dividir interesses com vc e falar de taylor swift sempre que possível! Espero que seu dia seja incrível e esse novo ciclo maravilhoso!💖              </p>
+            </article>
+
+            <!-- =================
+                 5. JESUS 
+                 ================= -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/jesus.jpeg"
+                    alt="Jesus"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Jesus
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Oiii dede!! feliz aniversário, que seu dia seja maravilhoso e cheio de alegria, espero que voce tenha uma vida maravilhosa e que seja reflexo da pessoa incrivel que voce é. beijos, aproveita seu dia!! ❤️              </p>
+            </article>
+
+            <!-- ==================
+                 6. GIAN 
+                 =================-->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/gian.jpeg"
+                    alt="Gian"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Gian
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               Ooi isaa, Tudo bem? Aqui é o Gian, queria te desejar um feliz aniversário, muita felicidade e que Deus te abençoe sempre, vc é uma amiga mt especial pra mim (desde o primeiro ano🙂‍↕️). A mensagem que eu quero passar é, eu espero sempre que você lembre dos bons momentos que todos nós passamos juntos e sempre querer colecionar mais, tenho muito a agradecer a você e a seu namorado, são 2 pessoas que guardo com carinho no meu coração e sempre guardarei. Aproveita seu aniversário!!
+Com carinho, Gian[(Fofis)Minha namorada mandou colocar] </p>
+<p>
+Obs: Não sou falso </p>
+            </article>
+
+            <!-- =================
+                 7. VEVE 
+                 ================= -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/veve.jpeg"
+                    alt="Veve"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Veve
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz aniversário dede, você é uma amiga incrível, eu sou muito grata por ter você perto. Amo o fato de você ser extremamente atenciosa e carinhosa, realmente uma amiga que todo mundo deveria ter, e que por sorte, eu já tenho!!
+Te amo ❤️❤️              </p>
+            </article>
+
+            <!-- =================
+                 8. MARINA 
+                 ================= -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/marina.jpeg"
+                    alt="Marina"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Marina
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               feliz aniversário isa!!!</p>
+               <p>
+que sua nova fase venha cheia de conquistas, sucesso, felicidade e principalmente paz.
+conte comigo para tudo, te amo muitooo              </p>
+            </article>
+
+            <!-- ================
+                 9. DUDAMBA 
+                 ================-->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/dudamba.jpeg"
+                    alt="Dudamba"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Dudamba
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Isa, te desejo as melhores coisas do mundo, vc é uma menina maravilhosa, linda e divertida. Que você tenha muita saúde,paz, felicidade, sucesso,prosperidade e muitos cookies. Bjs              </p>
+            </article>
+
+            <!-- ================
+                 10. AKAFORI 
+                 ================ -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/akafori.jpeg"
+                    alt="Akafori"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Akafori
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz aniversário Isa, que Deus abençoe vc hj e sempre, muita felicidade e sucesso, aproveita mto sua nova fase              </p>
+            </article>
+
+            <!-- ===============
+                 11. FELIX 
+                 =============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/felix.jpeg"
+                    alt="Felix"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Felix
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               Feliz aniversário Isa🎉🥳🎉🥳</p>
+               <p>
+Muitos anos de vida, que Deus te abençoe sempre, te dê muita saúde, dinheiro, paz, alegria e felicidade, vc é uma pessoa incrível e merece tudo de bom nessa vida, Tmj sempre 🎉🥳🎉🥳
+              </p>
+            </article>
+
+            <!-- =================
+                 12. FLÁVIA 
+                 ================= -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/flavia.jpeg"
+                    alt="Flávia"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Flávia
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Parabens isaa!! Que vc continue sendo doce e gentil do jeitinho q vc é, mesmo a gente nao tendo muita intimidade ja te vejo como uma grande amiga❤️.
+              </p>
+               <!-- ================
+                 13. vinicius
+                 ===================-->
+
+
+            </article>
+                 <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/vinicius.jpeg"
+                    alt="Vinicius"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Vinicius
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                PARABÉNS ISAAAAAAA MEU DEUS É O CÉU ANIVERSÁRIO, desejo tudo de bom pra você sempre, você merece tudo que tem (inclusive o seu namorado vulgo Renan), que você tenha muita prosperidade e felicidade na sua vida, por mais que a gente se viu pouco, eu sei e sinto que você é uma mulher pura e com uma energia incrível, aproveita seu dia e felicidades!!!! ❤️🎉              </p>
+            </article>
+            <!-- ==============
+                 14. Heitor
+                 ============== -->
+
+              <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/heitor.jpeg"
+                    alt="Heitor"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Heitor
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Degaspare, você é uma pessoa muito legal que sempre me tratou mais bem, fico feliz de ser seu amigo e te considero muito!! pode contar cmg!!            
+              </p>
+            </article>
+
+
+            <!-- ==============
+                 15. Agatha
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Agatha.jpeg"
+                    alt="Agatha"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Agatha
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               OIII SUA LINDA! perdão não conseguir ir no seu aniversário (mals) mas eu simplesmente amo como somos parecidas, e sempre temos algum assunto mesmo depois de muito tempo. te amo minha companhia de profissão 🫶🏻🫶🏻 feliz aniversário princesa, que você se ilumine cada vez mais e seja cada vez mais genial e querida. beijos, linda MWAH!
+              </p>
+            </article>
+
+            <!-- ==============
+                 16. Verpa
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Verpa.jpeg"
+                    alt="Verpa"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Verpa
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               Feliz aniversário Degasparee!! Que seu novo ciclo seja repleto de felicidade, conquistas e momentos incríveis! Adoro ver suas reviews dos livros e suas postagens sobre jornalismo. Aproveite muito seu dia 🫶🏻
+              </p>
+            </article>
+
+            <!-- ==============
+                 17. Catarina
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Catarina.jpeg"
+                    alt="Catarina"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Catarina
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Dia de uma das meninas mais doces que já conheci! Isa, obrigada por todos os momentos ao seu lado que sempre são cheio de risadas e conversas incríveis! Tive muita sorte de manter uma amizade maravilhosa com uma das meninas mais gentis que já conheci! Você merece tudo de melhor nessa vida e que todos seus sonhos se realizem, pq vc merece princesa! Te amo amiga! ❤️
+              </p>
+            </article>
+
+            <!-- ==============
+                 18. João
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/joao.jpeg"
+                    alt="João"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      João
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Quero continuar vivendo o maximo possivel perto de uma pessoa incrivel como voce. Voce é maravilhosa e merece tudo de melhor
+              </p>
+            </article>
+
+            <!-- ==============
+                 19. Kenji
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Kenji.jpeg"
+                    alt="Kenji"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Kenji
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz aniversário Didi, tudo de bom, muita saúde, felicidade e que seus planos sejam conquistados. Que essa nova estampa da vida seja cheia de momentos felizes
+              </p>
+            </article>
+
+            <!-- ==============
+                 20. Duda
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/duda.jpeg"
+                    alt="Duda"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Duda
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                feliz aniversário princesa, quero te desejar as melhores coisas, muitas felicidades e muito amor. espero que essa nova fase seja incrível igual a pessoa que você é, sou muito grata pela vida ter nos dado a oportunidade de nos conhecer e mesmo não tendo tanto contato e nem tanta intimidade, te considero demais e vou sempre torcer por ti. que venham muitos shows da taylor pela frente, amo você
+              </p>
+            </article>
+
+            <!-- ==============
+                 21. Hermes
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Hermes.jpeg"
+                    alt="Hermes"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Hermes
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Parabéns isaa, feliz aniversário tudo de bom pra você, muitos anos de vida, aproveita o seu dia. Felicidades sempre!
+              </p>
+            </article>
+
+            <!-- ==============
+                 22. Cathe
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Cathe.jpeg"
+                    alt="Cathe"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Cathe
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz aniversário, Isaa!! 
+Acho incrível pensar que crescemos tanto desde a época em que éramos aquelas meninas que gravavam vídeos comendo pó de café puro KKKKKKKK. E que não importa quanto tempo passe, sei que sempre vamos ter nossas risadas, fofocas e uma amizade pra lá de especial. Você é uma pessoa maravilhosa e cheia de luz!! Que a vida te reserve coisas lindas, motivos infinitos pra sorrir e muita Taylor. Te amo muito!! ❤️
+              </p>
+            </article>
+
+            <!-- ==============
+                 23. Guibr
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Guibr.jpeg"
+                    alt="Guibr"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Guibr
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               Feliz aniversário! Espero que seu dia seja muito especial e que você aproveite bastante. Te desejo muitas coisas boas, felicidade e que consiga realizar tudo o que deseja.
+            </article>
+
+            <!-- ==============
+                 24. Karina
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/karina.jpeg"
+                    alt="Karina"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Karina
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <!-- [EDITAR AQUI] Mensagem da Karina -->
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                feliz aniversário isaaa!! que seu novo ciclo seja repleto de coisas boas e que você continue sendo essa menina incrível e muito especial que você é💗💗
+              </p>
+            </article>
+
+            <!-- =======GIBIM======= -->
+
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Gibim.jpeg"
+                    alt="Gibim"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Gibim
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz aniversário Isa!! Muita saude e felicidades, espero que tudo de bom e de melhor aconteça para você nessa nova fase, pois você merece🎉🎉🎉🥳🥳
+              </p>
+            </article>
+            <!-- ==============
+                 25. Fideliz
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Fideliz.jpeg"
+                    alt="Fideliz"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Fideliz
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Parabéns, Isa!! Te desejo tudo de bom, muita felicidade, saúde e sucesso, você merece. Que seu dia seja muito especial e que esse novo ciclo venha cheio de coisas boas e conquistas. Aproveita bastante seu dia! 🥳🥳🥳
+              </p>
+            </article>
+
+            <!-- ==============
+                 26. Anna
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Anna.jpeg"
+                    alt="Anna"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Anna
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+               oiii isa, queria te dizer que você é uma pessoa muito especial e que é muito bom ter pessoas como você por perto. Admiro muito seu jeito, sua gentileza e o quanto você é querida. Mesmo que a gente não tenha tanta proximidade, tenho um carinho enorme por você e acho que pessoas boas assim merecem sempre receber coisas boas de volta. Espero que a vida te proporcione momentos lindos, muitas alegrias e motivos pra sorrir. Nunca deixe de ser essa pessoa tão querida e especial! 💗
+              </p>
+            </article>
+
+            <!-- ==============
+                 27. Gi
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Gi.jpeg"
+                    alt="Gi"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Gi
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              <!-- [EDITAR AQUI] Mensagem da Gi -->
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Isa, que prazer ter te conhecido esse ano!!</p>
+<p>obrigada por todas as risadas e conversas, pelas referências pop e políticas.</p>
+<p>admiro muito sua gentileza, inteligência e empatia.</p>
+<p>te amo!</p>
+              </p>
+            </article>
+
+            <!-- ==============
+                 28. Babi
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Babi.jpeg"
+                    alt="Babi"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Babi
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                feliz aniversário isaa!!</p>
+<P>que Deus abençoe sua vida sempre, que novo ciclo seja tão incrível quanto você!!!</p>
+<P>fico muito feliz por compartilhar essa fase tão importante da vida com você, por vivermos momentos felizes juntas… amo vc 💗💗</p>
+              </p>
+            </article>
+
+            <!-- ==============
+                 29. Belly
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Belly.jpeg"
+                    alt="Belly"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Belly
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Você carrega amor por onde passa e sou muito grata por ter a chance de receber de perto todo esse carinho. Obrigada por fazer tanto até nós pequenos detalhes isa! Te amo hoje e sempre
+              </p>
+            </article>
+
+            <!-- ==============
+                 30. Bella
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Bella.jpeg"
+                    alt="Bella"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Bella
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                De todas as minhas paixões, de Taylor a Jogos Vorazes, você é a maior delas! Sua amizade foi o maior presente que eu poderia ganhar esse ano. Feliz aniversário, duplinha! Te amo!!! ❤️
+              </p>
+            </article>
+
+            <!-- ==============
+                 31. Julia
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Julia.jpeg"
+                    alt="Julia"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Julia
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz aniversário Isaaa! Ter te conhecido foi uma das melhores coisas que me aconteceram esse ano e saiba que você pode contar comigo pra tudo!!! Te amo, Isa. Sempre vou torcer muito por você 💗
+              </p>
+            </article>
+
+            <!-- ==============
+                 32. Ju
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/ju.jpeg"
+                    alt="Ju"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Ju
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz vida Isaaaa! Ter te conhecido esse ano foi incrível, você é uma menina maravilhosa, com um coração enorme. Sua vontade de ajudar o próximo com certeza é uma de suas maiores qualidades. Quero que saiba que pode contar comigo sempre e para qualquer coisa. Te amo
+              </p>
+            </article>
+
+            <!-- ==============
+                 33. Luiza
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Luiza.jpeg"
+                    alt="Luiza"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Luiza
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Isa, feliz aniversário!! ❤️
+
+Quero te desejar um novo ciclo cheio de coisas boas, muitas conquistas, momentos felizes e motivos para sorrir. Mesmo que a gente tenha se conhecido só esse ano, fico muito feliz que a faculdade tenha proporcionado essa amizade. Foi muito bom ter conhecido você e poder compartilhar tantos momentos ao longo desse ano!</p>
+<p>Espero que seu dia seja tão especial quanto você e que nunca faltem pessoas que te queiram bem ao seu lado. Que venham muitas experiências, histórias e momentos incríveis pela frente. Aproveita muito seu dia! Gosto muito de você! 💗</p>
+              </p>
+            </article>
+
+            <!-- ==============
+                 34. Lissa
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Lissa.jpeg"
+                    alt="Lissa"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Lissa
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+    
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                isa, só queria te dizer o quão importante vc se tornou pra mim, mesmo te conhecendo a tão pouco tempo tenho muita sorte de ter te encontrado na faculdade!!
+vc me inspira em diversas coisas, uma delas é ler, te admiro mto por isso e não sei se já te falei, mas vc q me inspirou a ler off campus!! MUITO OBRIGADA por isso
+desejo só o melhor pra vc, saiba q te amo muito, feliz aniversário ❤️
+              </p>
+            </article>
+            <!-- ==============
+                 35. Marcela
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Marcela.jpeg"
+                    alt="Marcela"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Marcela
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz vida Isa!! Desejo tudo de melhor nesse mundo pra você. Que esse ano venha repleto de conquistas e muita luz no seu caminho. Que você continue sendo essa pessoa incrível que sempre foi🤍 Curta muito seu dia, Te amoooo!!!
+              </p>
+            </article>
+            <!-- ==============
+                 35. Narita
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Narita.jpeg"
+                    alt="Narita"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Narita
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Amiga feliz aniversário! Que essa nova fase seja muito abençoada, obrigada por todos esses anos ao seu lado, eu não poderia desejar uma amiga melhor te amooo ❤️              </p>
+            </article>
+
+            <!-- ==============
+                 37. Léo
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/leo.jpeg"
+                    alt="Léo"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Léo
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Isa, feliz aniversário! Espero que seu dia seja incrível, cheio de coisas boas, conquistas e momentos felizes. Tenho muito carinho por você. Aproveite muito seu dia e continue sendo essa pessoa especial para todos nós. ❤️
+              </p>
+            </article>
+
+            <!-- ==============
+                 38. Gustavinho
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/gustavinho.jpeg"
+                    alt="Gustavinho"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Gustavinho
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Oii, Isa! Feliz aniversário, amg! Primeiro quero te desejar tudo de bom, muita paz, saúde e felicidade. Quero agradecer a nossa amizade, já foram alguns aninhos que a gente se conhece e vários momentos legais. Vc é uma pessoa muito especial pra mim e te desejo tudo de bom sempre. Aproveita muito seu dia e esse novo capítulo na sua vida! 🥳
+              </p>
+            </article>
+
+            <!-- ==============
+                 39. Luiz
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Luiz.jpeg"
+                    alt="Luiz"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Luiz
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                ❤️ Aniversário dela, o Corinthians dela e a felicidade dela... E eu, palmeirense convicto, como prova de amor e para garantir meu lugar na família, encarei esse jogo. Mas, como bom palmeirense, fui apenas fiscalizar o rival. O Neymar? Esse eu tentei ver de perto.
+              </p>
+            </article>
+
+            <!-- ==============
+                 40. Rocha
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Rocha.jpeg"
+                    alt="Rocha"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Rocha
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                oii isa, feliz aniversário 
+Que Deus te abençoe sempre, que você tenha muita saúde e paz
+você é uma ótima amiga, muito bom ter sua companhia
+              </p>
+            </article>
+
+            <!-- ==============
+                 41. Paulo
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/paulo.jpeg"
+                    alt="Paulo"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Paulo
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Feliz aniversário isa!! Amiga eu nem sei ao certo por onde começar, mas muito obrigado por ser essa pessoa incrível e uma das melhores amigas que eu poderia pedir, fico muito grato de ter conhecido e me aproximado de você e também muito orgulhoso de ver as suas conquistas pessoais e acadêmicas. Sou muito sortudo de ter tido o privilégio de conhecer você, saber sobre as coisas que gosta e tem interesse, além de ter compartilhado muitos momentos juntos. Te amo muito amiga, espero tudo de bom pra ti e pode sempre contar comigo!            </article>
+            <!-- ==============
+                 42. Rodrigo
+                 ============== -->
+            <article class="friend-card-item bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-800 relative overflow-hidden transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="./assets/img/Rodrigo.jpeg"
+                    alt="Rodrigo"
+                    class="friend-avatar-img w-12 h-12 rounded-full object-cover border border-rose-700 flex-shrink-0"
+                  />
+                  <div>
+                    <h3 class="friend-name font-serif font-bold text-slate-100 text-sm sm:text-base leading-tight">
+                      Rodrigo
+                    </h3>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="friend-like-btn relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 text-[11px] font-semibold transition-colors active:scale-95 flex-shrink-0"
+                >
+                  <span class="text-rose-500">♥</span>
+                  <span class="like-label">Amei</span>
+                </button>
+              </div>
+              
+              <p class="friend-message text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Oioi Isa!! Feliz aniversário, que Deus te abençoe muito, hoje e sempre! Apesar da gente não conversar tanto, saiba que te considero bastante e torço muito por você, espero que você conquiste tudo que almeja e que sua trajetória acadêmica e profissional seja cheia de sucesso, sorte e muitas alegrias, parabéns por ser essa pessoa de bom caráter e ter um bom coração, você merece tudo de melhor!              </p>
+            </article>
+
+
+
+          </div>
+
+          <!-- CONTROLES DO CARROSSEL EM GRUPO (Flat Slate-900 & Rubi) -->
+          <div id="friends-carousel-controls" class="mt-4 flex items-center justify-between gap-2">
+            <button
+              id="friend-prev-btn"
+              type="button"
+              aria-label="Grupo anterior de recados"
+              class="px-3.5 h-10 rounded-full bg-slate-900 hover:bg-slate-800 active:scale-95 text-slate-200 border border-slate-800 flex items-center gap-1 text-xs font-semibold transition-colors"
+            >
+              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Anteriores</span>
+            </button>
+
+            <div class="flex items-center gap-1.5">
+              <span
+                id="friend-counter-badge"
+                class="px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-[11px] sm:text-xs font-bold text-slate-200"
+              >
+                Mostrando 1–3 de 41
+              </span>
+
+              <button
+                id="friend-autoplay-toggle"
+                type="button"
+                class="px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-rose-500 border border-slate-800 text-[11px] sm:text-xs font-semibold transition-colors"
+              >
+                Pausar
+              </button>
+            </div>
+
+            <button
+              id="friend-next-btn"
+              type="button"
+              aria-label="Próximo grupo de recados"
+              class="px-3.5 h-10 rounded-full bg-slate-900 hover:bg-slate-800 active:scale-95 text-slate-200 border border-slate-800 flex items-center gap-1 text-xs font-semibold transition-colors"
+            >
+              <span>Próximos</span>
+              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Botão para alternar entre Carrossel Rotativo e Ver Todos no Mural -->
+          <div class="mt-4 text-center">
+            <button
+              id="friend-view-all-btn"
+              type="button"
+              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-slate-100 border border-slate-800 text-xs font-semibold transition-colors"
+            >
+              <span>Ver Todos os Recados de Uma Vez</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. CARTA ABERTA DE ANIVERSÁRIO (SURPRESA FINAL - FLAT EDITORIAL)
+         ====================================================================== -->
+    <section id="surpresa" class="pt-8 pb-8 text-center reveal">
+      <div class="bg-slate-900 rounded-2xl p-7 sm:p-9 border border-slate-800 relative overflow-hidden">
+        <!-- Linha de topo sólida em Vermelho Rubi -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-rose-700"></div>
+
+        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center text-2xl">
+          💌
+        </div>
+
+        <span class="text-[11px] font-semibold uppercase tracking-widest text-rose-500 block mb-1">
+          Para Fechar com Todo o Meu Amor
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+          Uma Surpresa Para Você
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-sm mx-auto leading-relaxed">
+          Guardei algumas palavras especiais para você ler com calma neste dia tão lindo.
+        </p>
+
+        <!-- BOTÃO FLAT VERMELHO RUBI COM EFEITO DE PULSO SUAVE -->
+        <div class="mt-7">
+          <button
+            id="open-letter-btn"
+            type="button"
+            class="btn-pulse-celebration inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-rose-700 hover:bg-rose-800 text-slate-100 font-bold text-sm sm:text-base tracking-tight active:scale-95 transition-colors"
+          >
+            <span>Abrir Sua Carta de Aniversário</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé Minimalista Editorial -->
+  <footer class="text-center py-8 border-t border-slate-800 bg-slate-950 text-xs text-slate-400 px-4">
+    <p class="font-serif italic text-sm text-slate-200">
+      Feito com todo o carinho do mundo para celebrar os seus 19 anos
+    </p>
+    <p class="mt-1 text-slate-500">23 de Novembro • Que todos os seus sonhos floresçam</p>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL INTERATIVO DA RETROSPECTIVA DE 19 ANOS (FOTO AMPLIADA + TEXTO COMPLETO)
+       ======================================================================== -->
+  <div
+    id="timeline-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="timeline-modal-title"
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85"
+  >
+    <div class="modal-card bg-slate-900 relative w-full max-w-md max-h-[90vh] rounded-2xl border border-slate-800 flex flex-col overflow-hidden">
+
+      <!-- Linha Rubi no topo do Modal -->
+      <div class="h-1 bg-rose-700 flex-shrink-0"></div>
+
+      <!-- Foto Ampliada no Topo do Modal (Sem cortes) -->
+      <div class="relative bg-slate-950 h-72 sm:h-80 overflow-hidden flex items-center justify-center border-b border-slate-800">
+        <img
+          id="timeline-modal-bg-blur"
+          src="./assets/img/2023.jpeg"
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+        />
+        <img
+          id="timeline-modal-img"
+          src="./assets/img/2023.jpeg"
+          alt="Foto ampliada do ano"
+          class="relative z-10 max-w-full max-h-72 sm:max-h-80 object-contain transition-all duration-300"
+        />
+
+        <!-- Badge do Ano Flutuante (Rubi Sólido) -->
+        <span
+          id="timeline-modal-badge"
+          class="absolute top-3.5 left-3.5 z-20 px-3.5 py-1 rounded-full bg-rose-700 text-slate-100 text-xs font-bold"
+        >
+          1º Ano
+        </span>
+
+        <!-- Botão Fechar no Canto Superior Direito -->
+        <button
+          id="close-timeline-modal-btn"
+          type="button"
+          aria-label="Fechar foto ampliada"
+          class="absolute top-3.5 right-3.5 z-20 w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 flex items-center justify-center font-bold transition-colors active:scale-95"
+        >
+          ✕
+        </button>
+
+        <!-- Setas para passar as fotos do mesmo ano (aparecem quando o ano tem mais de 1 foto) -->
+        <button
+          id="timeline-slide-prev"
+          type="button"
+          aria-label="Foto anterior deste ano"
+          class="hidden absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-900/90 hover:bg-rose-700 text-slate-100 border border-slate-700 items-center justify-center text-lg font-bold transition-colors active:scale-95"
+        >
+          ‹
+        </button>
+        <button
+          id="timeline-slide-next"
+          type="button"
+          aria-label="Próxima foto deste ano"
+          class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-slate-900/90 hover:bg-rose-700 text-slate-100 border border-slate-700 items-center justify-center text-lg font-bold transition-colors active:scale-95"
+        >
+          ›
+        </button>
+
+        <!-- Indicadores de Fotos do Mesmo Ano (bolinhas + "Foto 1 de 2") -->
+        <div
+          id="timeline-slide-bar"
+          class="hidden absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 items-center gap-2 px-3 py-1 rounded-full bg-slate-950/85 border border-slate-800"
+        >
+          <div id="timeline-slide-dots" class="flex items-center gap-1.5"></div>
+          <span id="timeline-slide-label" class="text-[10px] font-semibold text-slate-300">
+            Foto 1 de 2
+          </span>
+        </div>
+      </div>
+
+      <!-- Conteúdo Completo do Ano Selecionado -->
+      <div class="p-5 sm:p-6 overflow-y-auto custom-scrollbar space-y-2 text-left flex-1 bg-slate-900">
+        <p id="timeline-modal-sub" class="text-[11px] font-bold uppercase tracking-widest text-rose-500">
+          Fase Especial • 1 de 19
+        </p>
+        <h3 id="timeline-modal-title" class="font-serif font-bold text-lg sm:text-xl text-slate-100 leading-snug">
+          Título do Ano
+        </h3>
+        <p id="timeline-modal-text" class="text-sm sm:text-base text-slate-300 leading-relaxed pt-1">
+          Texto completo da memória deste ano...
+        </p>
+      </div>
+
+      <!-- Rodapé do Modal para Navegar entre os 19 Anos -->
+      <div class="px-5 py-3.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between gap-2">
+        <button
+          id="timeline-prev-btn"
+          type="button"
+          class="px-3.5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-200 font-semibold text-xs border border-slate-800 active:scale-95 transition-colors flex items-center gap-1"
+        >
+          <span>← Ano Anterior</span>
+        </button>
+
+        <span id="timeline-modal-counter" class="text-xs font-bold text-slate-400">
+          1 / 19
+        </span>
+
+        <button
+          id="timeline-next-btn"
+          type="button"
+          class="px-3.5 py-2 rounded-full bg-rose-700 hover:bg-rose-800 text-slate-100 font-semibold text-xs active:scale-95 transition-colors flex items-center gap-1"
+        >
+          <span>Próximo Ano →</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL INTERATIVO DOS AMIGOS (FOTO COM O AMIGO AMPLIADA + MENSAGEM COMPLETA)
+       Abre ao clicar/tocar em qualquer mensagem de amigo ou no círculo da foto!
+       ======================================================================== -->
+  <div
+    id="friend-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="friend-modal-name"
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85"
+  >
+    <div class="modal-card bg-slate-900 relative w-full max-w-md max-h-[90vh] rounded-2xl border border-slate-800 flex flex-col overflow-hidden">
+
+      <!-- Linha Rubi no topo do Modal -->
+      <div class="h-1 bg-rose-700 flex-shrink-0"></div>
+
+      <!-- Foto Ampliada com o Amigo(a) no Topo do Modal (Sem cortes) -->
+      <div class="relative bg-slate-950 h-72 sm:h-80 overflow-hidden flex items-center justify-center border-b border-slate-800">
+        <img
+          id="friend-modal-bg-blur"
+          src="./assets/img/Alice.jpeg"
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+        />
+        <img
+          id="friend-modal-img"
+          src="./assets/img/Alice.jpeg"
+          alt="Foto ampliada com amigo(a)"
+          class="relative z-10 max-w-full max-h-72 sm:max-h-80 object-contain transition-all duration-300"
+        />
+
+        <!-- Badge Flutuante -->
+        <span
+          id="friend-modal-badge"
+          class="absolute top-3.5 left-3.5 z-20 px-3.5 py-1 rounded-full bg-rose-700 text-slate-100 text-xs font-bold"
+        >
+          Recado Especial
+        </span>
+
+        <!-- Botão Fechar no Canto Superior Direito -->
+        <button
+          id="close-friend-modal-btn"
+          type="button"
+          aria-label="Fechar recado ampliado"
+          class="absolute top-3.5 right-3.5 z-20 w-9 h-9 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 flex items-center justify-center font-bold transition-colors active:scale-95"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Nome e Mensagem Completa -->
+      <div class="p-5 sm:p-6 overflow-y-auto custom-scrollbar space-y-2 text-left flex-1 bg-slate-900">
+        <p class="text-[11px] font-bold uppercase tracking-widest text-rose-500">
+          Recado de Quem Te Ama
+        </p>
+        <h3 id="friend-modal-name" class="font-serif font-bold text-xl sm:text-2xl text-slate-100 leading-snug">
+          Alice
+        </h3>
+        <div id="friend-modal-text" class="text-sm sm:text-base text-slate-300 leading-relaxed pt-1 space-y-2">
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal para Navegar entre os Amigos -->
+      <div class="px-5 py-3.5 bg-slate-950 border-t border-slate-800 flex items-center justify-between gap-2">
+        <button
+          id="friend-modal-prev"
+          type="button"
+          class="px-3.5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-200 font-semibold text-xs border border-slate-800 active:scale-95 transition-colors flex items-center gap-1"
+        >
+          <span>← Anterior</span>
+        </button>
+
+        <span id="friend-modal-counter" class="text-xs font-bold text-slate-400">
+          1 / 12
+        </span>
+
+        <button
+          id="friend-modal-next"
+          type="button"
+          class="px-3.5 py-2 rounded-full bg-rose-700 hover:bg-rose-800 text-slate-100 font-semibold text-xs active:scale-95 transition-colors flex items-center gap-1"
+        >
+          <span>Próximo →</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL DA CARTA DE ANIVERSÁRIO (ESTÉTICA FLAT AZUL MARINHO & RUBI)
+       [EDITAR AQUI] Escreva ou personalize a sua carta de aniversário abaixo!
+       ======================================================================== -->
+  <div
+    id="letter-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="letter-modal-title"
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85"
+  >
+    <div class="modal-card bg-slate-900 relative w-full max-w-lg max-h-[88vh] rounded-2xl border border-slate-800 flex flex-col overflow-hidden">
+
+      <!-- Linha Rubi no topo da Carta -->
+      <div class="h-1 bg-rose-700 flex-shrink-0"></div>
+
+      <!-- Cabeçalho do Modal -->
+      <div class="px-6 pt-4 pb-3 border-b border-slate-800 flex items-center justify-between bg-slate-900">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-rose-700"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-slate-300">
+            Carta de Aniversário
+          </span>
+        </div>
+        <button
+          id="close-letter-btn"
+          type="button"
+          aria-label="Fechar carta"
+          class="w-8 h-8 rounded-full bg-slate-950 hover:bg-slate-800 text-slate-300 border border-slate-800 flex items-center justify-center transition-colors text-sm font-bold"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Conteúdo Rolável da Carta -->
+      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-4 text-left bg-slate-900">
+        <p class="text-[11px] font-bold uppercase tracking-widest text-rose-500">
+          23 de Novembro • Seus 19 Anos
+        </p>
+
+        <!-- [EDITAR AQUI] Saudação da Carta -->
+        <h3 id="letter-modal-title" class="font-serif text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+          Para o amor da minha vida,
+        </h3>
+
+        <!-- [EDITAR AQUI] Parágrafos da Carta de Aniversário escrita por você -->
+        <div class="space-y-3.5 text-sm sm:text-base text-slate-300 leading-relaxed">
+          Oi meu amor, como é bom em te ver fazer mais um ano de vida, sinceramente eu sempre fico preso em como escrever uma carta para você, isso é pelo o fato que não existe palavras para eu descrever o que eu sinto para pela a isabela degaspare, eu espero que você continue sendo a pessoa que é, uma pessoa que sempre se importou com os outros, até de quem você não conhece direito, eu uso isso sempre como inspiração e eu tenho certeza que outras pessoas se inspira em você, eu quero que você saiba que nesse mundo você nunca estará sozinha, eu sei que nem todos os dias vão ser fáceis, mas eu escolho lutar por nós todos os dias, porque é a vida inteira ao seu lado que eu quero. Nunca irei esquecer quando você saia da sua casa e ia ate o jeronimo ou pitaya so para me ajudar a estudar, porque sabia que era necessário isso, você se importava comigo, mesmo eu te namorando agora e sabendo que era tudo um plano seu, eu tenho na minha mente que você faria isso por qualquer um que precisasse de você.</p>
+<p>Eu amo o fato de ter sido escolhido por você em te ver crescer, todo esse tempo que eu passei com você so fica cada vez mais nítido que o renan de 2023 fez a escolha certa, eu estava apaixonado pela a pessoa certa.</p>
+Eu quero que você aproveita bastante o seu dia e sua semana de aniversario (que acaba no domingo que vem), que dependendo de você iria ate o ano que vem, infelizmente não consegui colocar algumas pessoas que acabou faltando, mas elas não deixa de amar você, a verdade é que as pessoas que você se importa eles também se importa com você, por favor nunca deixe de ser quem você é que todos amam. Meu amor por você é profundo, verdadeiro e real.
+<p>Feliz aniversario meu amor.</p>
+        </div>
+
+        <!-- [EDITAR AQUI] Assinatura da Carta -->
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+          <div>
+            <p class="text-xs text-slate-400">Com todo o meu amor e admiração,</p>
+            <p class="font-serif italic text-xl font-bold text-slate-100 mt-0.5">
+              RERE
+            </p>
+          </div>
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-700"></span>
+        </div>
+      </div>
+
+      <!-- Rodapé do Modal com Botões -->
+      <div class="px-6 py-4 bg-slate-950 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2">
+        <button
+          id="more-celebration-btn"
+          type="button"
+          class="flex-1 py-2.5 px-4 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-200 font-semibold text-xs sm:text-sm border border-slate-800 active:scale-95 transition-colors"
+        >
+          ✨ Mais Corações & Confetes
+        </button>
+        <button
+          id="close-letter-footer-btn"
+          type="button"
+          class="py-2.5 px-5 rounded-full bg-rose-700 hover:bg-rose-800 text-slate-100 font-semibold text-xs sm:text-sm active:scale-95 transition-colors"
+        >
+          Fechar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>

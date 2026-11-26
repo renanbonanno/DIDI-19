@@ -236,21 +236,20 @@ const RETROSPECTIVA_19_ANOS = [
     subtitulo: '2024 ',
     titulo: 'Você é a pessoa mais teimosa e mais linda que eu conheço.',
     foto: './assets/img/2024.jpeg',
-    texto: 'Aqui eu posso falar que eu posso que eu convivi o ano inteiro do seu lado, e aquela pessoa que eu me apaixonei em 2023 era muito mais do que eu imaginava, eu não sabia o quanto você se importava com as pessoas o quanto você planejava e pensava, todo dia naquela época eu descobria algo novo de você.'
+    texto: 'Eu convivi esse ano inteiro ao seu lado, e aquela pessoa que eu me apaixonei em 2023 era muito mais do que eu imaginava. Eu não sabia o quanto você se importava com as pessoas, o quanto você planejava e pensava, todo dia naquela época eu descobria algo novo de você.'  
   },
   {
     ano: '18 Anos • 2025',
     subtitulo: '2025 ',
     titulo: 'De todos os meus planos malignos, me apaixonar por você foi o único que eu não previ.',
     foto: './assets/img/2025.jpeg',
-    texto: 'Este ano de 2025 foi muito diferente dos outros, nos estávamos encontrando o que nos queremos para a nossa vida adulta e fico feliz de ver o quanto nos mudamos e amadurecemos juntos'
-  },
+    texto: 'Eu convivi esse ano inteiro ao seu lado, e aquela pessoa que eu me apaixonei em 2023 era muito mais do que eu imaginava. Eu não sabia o quanto você se importava com as pessoas, o quanto você planejava e pensava, todo dia naquela época eu descobria algo novo de você.'  },
   {
     ano: '19 Anos • 2026 ✨',
     subtitulo: '2026',
     titulo: 'Verdadeiro ou Falso?',
     foto: './assets/img/2026.jpeg',
-    texto: 'Eu gosto muito dessa foto, eu vejo dois jovens apaixonados olhando um horizonte, um dia novo, experiencia nova e eu acho que ela descreve bem como nos terminamos a escola, como ainda tem muita coisa para viver, e ter experiencias novas fora dela, pela a primeira vez eu não tinha você andando pelo os mesmos corredores que eu.'  }
+    texto: 'Eu gosto muito dessa foto, eu vejo dois jovens apaixonados olhando um horizonte, um dia novo, uma experiência nova e eu acho que ela descreve bem como nós terminamos a escola.  Como ainda tem muita coisa para viver, e ter experiências novas fora dela, pela a primeira vez eu não tinha você andando pelo os mesmos corredores que eu.'  }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

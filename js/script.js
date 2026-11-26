@@ -227,7 +227,7 @@ const RETROSPECTIVA_19_ANOS = [
         foto: './assets/img/2023-2.jpeg',
         subtitulo: '2023 - sisi',
         titulo: 'Amigos de verdade são aqueles que descem até o submundo com você.',
-        texto: 'já nos conhecíamos a um tempo, mas em 2023 nos aproximamos de vdd, sou grata por vc ter se tornado uma pessoa tão importante em minha vida didi. n poderia ter uma melhor amg melhor q vc 💖'
+        texto: 'Já nos conhecíamos a um tempo, mas em 2023 nos aproximamos de vdd, sou grata por vc ter se tornado uma pessoa tão importante em minha vida didi. Não poderia ter uma melhor amg melhor que você. 💖'
       }
     ]
   },
@@ -319,10 +319,27 @@ function initLifeCounter() {
     birthDateString = customAttrDate;
   }
   const birthDate = new Date(birthDateString);
+  // Usa Date.UTC com o relógio local para evitar +1h do antigo Horário de Verão de 2007 no Brasil
+  const birthWallMs = Date.UTC(
+    birthDate.getFullYear(),
+    birthDate.getMonth(),
+    birthDate.getDate(),
+    birthDate.getHours(),
+    birthDate.getMinutes(),
+    birthDate.getSeconds()
+  );
 
   function updateCounter() {
     const now = new Date();
-    const diffMs = Math.max(0, now - birthDate);
+    const nowWallMs = Date.UTC(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      now.getHours(),
+      now.getMinutes(),
+      now.getSeconds()
+    );
+    const diffMs = Math.max(0, nowWallMs - birthWallMs);
 
     const totalSeconds = Math.floor(diffMs / 1000);
     const totalDays = Math.floor(totalSeconds / 86400);

@@ -243,7 +243,7 @@ const RETROSPECTIVA_19_ANOS = [
     subtitulo: '2025 ',
     titulo: 'De todos os meus planos malignos, me apaixonar por você foi o único que eu não previ.',
     foto: './assets/img/2025.jpeg',
-    texto: 'Eu convivi esse ano inteiro ao seu lado, e aquela pessoa que eu me apaixonei em 2023 era muito mais do que eu imaginava. Eu não sabia o quanto você se importava com as pessoas, o quanto você planejava e pensava, todo dia naquela época eu descobria algo novo de você.'  },
+    texto: 'O ano de 2025 foi muito diferente dos outros, nós estávamos encontrando o que queriamos para a nossa vida adulta e fico feliz de ver o quanto nós mudamos e amadurecemos juntos.'  },
   {
     ano: '19 Anos • 2026 ✨',
     subtitulo: '2026',

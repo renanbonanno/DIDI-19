@@ -199,14 +199,14 @@ const RETROSPECTIVA_19_ANOS = [
       {
         foto: './assets/img/2022-2.jpeg',
         subtitulo: '2022 - Paulo',
-        titulo: 'Isa de todos os momentos da nossa amizade, 2022 foi o ano que mais nos aproximamos, e honestamente ter conhecido a pessoa incrível que você, uma das melhores amigas, muito atenciosa, gentil, carismatica e com seu "jeitinho" (KSKSSKKSK) e seus gostos, foi um dos maiores privilégios que ja tive. Muito obrigado por nossos momentos juntos, nossas saídas com o pessoal do prédio, quando escutou meus desabafos, quando jogamos juntos; foram todos momentos que vou guardar pra toda minha vida, te amo amiga (figurinha da taylor fazendo <3)',
-        texto: 'texto do paulo'
+        titulo: 'Eu queria que houvesse um jeito de saber que estamos nos bons velhos tempos antes mesmo de eles acabarem.',
+        texto: 'Isa de todos os momentos da nossa amizade, 2022 foi o ano que mais nos aproximamos, e honestamente ter conhecido a pessoa incrível que você, uma das melhores amigas, muito atenciosa, gentil, carismatica e com seu "jeitinho" (KSKSSKKSK) e seus gostos, foi um dos maiores privilégios que ja tive. Muito obrigado por nossos momentos juntos, nossas saídas com o pessoal do prédio, quando escutou meus desabafos, quando jogamos juntos; foram todos momentos que vou guardar pra toda minha vida, te amo amiga (figurinha da taylor fazendo <3)'
       },
       {
         foto: './assets/img/2022-3.jpeg',
         subtitulo: '2022 - Marina',
-        titulo: 'em 2022 a gente começou a se ver mais, era praticamente todo dia, a gente tentava sair sempre os quatro juntos, para fazer qualquer coisa tipo conhecer um lugar novo ou acompanhar em momentos importantes. a Isa sempre estava topando qualquer lugar que a gente fosse ir, conhecemos muitas coisas novas e foi muito importante',
-        texto: 'texto da marina'
+        titulo: 'Eu queria que houvesse um jeito de saber que estamos nos bons velhos tempos antes mesmo de eles acabarem.',
+        texto: 'em 2022 a gente começou a se ver mais, era praticamente todo dia, a gente tentava sair sempre os quatro juntos, para fazer qualquer coisa tipo conhecer um lugar novo ou acompanhar em momentos importantes. a Isa sempre estava topando qualquer lugar que a gente fosse ir, conhecemos muitas coisas novas e foi muito importante'
       }
     ]
   },
@@ -663,6 +663,18 @@ function initTimeline19Years() {
     ];
   }
 
+  // Helper para disparar animação suave de deslize lateral (direita ou esquerda)
+  function triggerSideSlideAnim(elements, direction) {
+    if (!direction) return;
+    const animClass = direction === 'prev' ? 'slide-from-left' : 'slide-from-right';
+    elements.forEach((el) => {
+      if (!el) return;
+      el.classList.remove('slide-from-left', 'slide-from-right');
+      void el.offsetWidth; // força reinício imediato da animação CSS
+      el.classList.add(animClass);
+    });
+  }
+
   container.innerHTML = '';
 
   RETROSPECTIVA_19_ANOS.forEach((item, idx) => {
@@ -670,6 +682,7 @@ function initTimeline19Years() {
     const slides = getYearSlides(item);
     const firstSlide = slides[0];
     const hasMultiple = slides.length > 1;
+    let cardSlideIdx = 0;
 
     const row = document.createElement('div');
     row.className = `relative flex items-center w-full pointer-events-none reveal ${
@@ -691,33 +704,43 @@ function initTimeline19Years() {
           idx === totalYears - 1 ? 'border-rose-700' : 'border-slate-800'
         } text-left"
       >
-        <!-- Foto do Ano -->
+        <!-- Foto do Ano (com deslize automático quando o ano tem mais de 1 foto) -->
         <div class="relative h-28 sm:h-36 bg-slate-950 overflow-hidden group">
           <img
             src="${firstSlide.foto}"
             alt="${item.ano} - ${firstSlide.titulo}"
             loading="lazy"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            class="card-slide-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           <!-- Selo do Ano Flat Rubi -->
-          <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-rose-700 text-slate-100 text-[10px] sm:text-xs font-bold">
+          <span class="absolute top-2 left-2 z-10 px-2 py-0.5 rounded-full bg-rose-700 text-slate-100 text-[10px] sm:text-xs font-bold">
             ${item.ano}
           </span>
           ${
             hasMultiple
-              ? `<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-slate-950/90 text-slate-100 border border-slate-700 text-[10px] font-semibold">
+              ? `<div class="card-slide-dots absolute bottom-2 left-2 z-10 flex items-center gap-1 px-2 py-1 rounded-full bg-slate-950/85 border border-slate-800">
+                   ${slides
+                     .map(
+                       (_, sIdx) =>
+                         `<span class="card-dot h-1 rounded-full transition-all duration-300 ${
+                           sIdx === 0 ? 'w-3 bg-rose-500' : 'w-1 bg-slate-500'
+                         }"></span>`
+                     )
+                     .join('')}
+                 </div>
+                 <span class="absolute bottom-2 right-2 z-10 px-2 py-0.5 rounded-full bg-slate-950/90 text-slate-100 border border-slate-700 text-[10px] font-semibold">
                    ${slides.length} fotos
                  </span>`
               : ''
           }
         </div>
 
-        <!-- Resumo do Ano -->
-        <div class="p-2.5 sm:p-3.5">
-          <h3 class="font-bold text-xs sm:text-sm text-slate-200 line-clamp-1">
+        <!-- Resumo do Ano (desliza junto com a foto automaticamente) -->
+        <div class="p-2.5 sm:p-3.5 overflow-hidden">
+          <h3 class="card-slide-title font-bold text-xs sm:text-sm text-slate-200 line-clamp-1">
             ${firstSlide.titulo}
           </h3>
-          <p class="text-[11px] sm:text-xs text-slate-400 leading-snug mt-1 line-clamp-2">
+          <p class="card-slide-text text-[11px] sm:text-xs text-slate-400 leading-snug mt-1 line-clamp-2">
             ${firstSlide.texto}
           </p>
           <span class="inline-block mt-1.5 text-[10px] sm:text-[11px] font-semibold text-rose-500">
@@ -728,18 +751,52 @@ function initTimeline19Years() {
     `;
 
     const cardEl = row.querySelector('.timeline-year-card');
-    cardEl.addEventListener('click', () => openYearModal(idx));
+    cardEl.addEventListener('click', () => openYearModal(idx, cardSlideIdx));
     cardEl.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openYearModal(idx);
+        openYearModal(idx, cardSlideIdx);
       }
     });
+
+    // Deslize automático nos cards da linha do tempo que possuem múltiplos slides (antes mesmo de ampliar!)
+    if (hasMultiple) {
+      const cardImg = cardEl.querySelector('.card-slide-img');
+      const cardTitle = cardEl.querySelector('.card-slide-title');
+      const cardDesc = cardEl.querySelector('.card-slide-text');
+      const cardDots = cardEl.querySelectorAll('.card-dot');
+
+      // Pequeno atraso escalonado para que anos diferentes não troquem todos no mesmo milissegundo
+      setTimeout(() => {
+        setInterval(() => {
+          if (modal?.classList.contains('is-open')) return;
+
+          cardSlideIdx = (cardSlideIdx + 1) % slides.length;
+          const nextSlide = slides[cardSlideIdx];
+
+          if (cardImg) {
+            cardImg.removeAttribute('data-ext-try');
+            cardImg.src = nextSlide.foto;
+            cardImg.alt = `${item.ano} - ${nextSlide.titulo}`;
+          }
+          if (cardTitle) cardTitle.textContent = nextSlide.titulo;
+          if (cardDesc) cardDesc.textContent = nextSlide.texto;
+
+          cardDots.forEach((dot, dIdx) => {
+            dot.className = `card-dot h-1 rounded-full transition-all duration-300 ${
+              dIdx === cardSlideIdx ? 'w-3 bg-rose-500' : 'w-1 bg-slate-500'
+            }`;
+          });
+
+          triggerSideSlideAnim([cardImg, cardTitle, cardDesc], 'next');
+        }, 3800);
+      }, (idx % 4) * 700);
+    }
 
     container.appendChild(row);
   });
 
-  function renderCurrentSlide() {
+  function renderCurrentSlide(direction = null) {
     const item = RETROSPECTIVA_19_ANOS[currentYearIdx];
     const slides = getYearSlides(item);
     currentSlideIdx = ((currentSlideIdx % slides.length) + slides.length) % slides.length;
@@ -766,6 +823,9 @@ function initTimeline19Years() {
     if (modalText) modalText.textContent = activeSlide.texto;
     if (modalCounter) modalCounter.textContent = `${currentYearIdx + 1} / ${totalYears}`;
 
+    // Anima a foto e o conteúdo de texto deslizando para o lado
+    triggerSideSlideAnim([modalImg, modalTitle, modalText, modalSub], direction);
+
     // Mostra ou esconde as setas e bolinhas internas quando o ano tem mais de 1 foto
     if (hasMultiple) {
       slidePrevBtn?.classList.remove('hidden');
@@ -790,8 +850,9 @@ function initTimeline19Years() {
           }`;
           dot.addEventListener('click', (e) => {
             e.stopPropagation();
+            const dir = sIdx < currentSlideIdx ? 'prev' : 'next';
             currentSlideIdx = sIdx;
-            renderCurrentSlide();
+            renderCurrentSlide(dir);
           });
           slideDots.appendChild(dot);
         });
@@ -806,15 +867,15 @@ function initTimeline19Years() {
     }
   }
 
-  function updateModalContent(yearIdx, slideIdx = 0) {
+  function updateModalContent(yearIdx, slideIdx = 0, direction = null) {
     currentYearIdx = (yearIdx + totalYears) % totalYears;
     currentSlideIdx = slideIdx;
-    renderCurrentSlide();
+    renderCurrentSlide(direction);
   }
 
-  function openYearModal(idx) {
+  function openYearModal(idx, initialSlideIdx = 0) {
     if (!modal) return;
-    updateModalContent(idx, 0);
+    updateModalContent(idx, initialSlideIdx, null);
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -831,45 +892,45 @@ function initTimeline19Years() {
     const slides = getYearSlides(RETROSPECTIVA_19_ANOS[currentYearIdx]);
     if (currentSlideIdx < slides.length - 1) {
       currentSlideIdx++;
-      renderCurrentSlide();
+      renderCurrentSlide('next');
     } else {
-      updateModalContent(currentYearIdx + 1, 0);
+      updateModalContent(currentYearIdx + 1, 0, 'next');
     }
   }
 
   function goPrevSlideOrYear() {
     if (currentSlideIdx > 0) {
       currentSlideIdx--;
-      renderCurrentSlide();
+      renderCurrentSlide('prev');
     } else {
       const prevYear = (currentYearIdx - 1 + totalYears) % totalYears;
       const prevSlides = getYearSlides(RETROSPECTIVA_19_ANOS[prevYear]);
-      updateModalContent(prevYear, prevSlides.length - 1);
+      updateModalContent(prevYear, prevSlides.length - 1, 'prev');
     }
   }
 
   closeBtn?.addEventListener('click', closeYearModal);
 
-  // Setas laterais na foto passam entre as fotos e textos daquele ano
+  // Setas laterais na foto passam entre as fotos e textos daquele ano com animação lateral
   slidePrevBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     currentSlideIdx--;
-    renderCurrentSlide();
+    renderCurrentSlide('prev');
   });
 
   slideNextBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     currentSlideIdx++;
-    renderCurrentSlide();
+    renderCurrentSlide('next');
   });
 
-  // Botões do rodapé mudam de Ano
+  // Botões do rodapé mudam de Ano com animação lateral
   prevBtn?.addEventListener('click', () => {
-    updateModalContent(currentYearIdx - 1, 0);
+    updateModalContent(currentYearIdx - 1, 0, 'prev');
   });
 
   nextBtn?.addEventListener('click', () => {
-    updateModalContent(currentYearIdx + 1, 0);
+    updateModalContent(currentYearIdx + 1, 0, 'next');
   });
 
   modal?.addEventListener('click', (e) => {
@@ -1037,25 +1098,42 @@ function initFriendsCarousel() {
     return indices;
   }
 
-  function showGroupStartingAt(newStartIndex) {
+  function triggerFriendModalAnim(direction) {
+    if (!direction) return;
+    const animClass = direction === 'prev' ? 'slide-from-left' : 'slide-from-right';
+    [friendModalImg, friendModalName, friendModalText].forEach((el) => {
+      if (!el) return;
+      el.classList.remove('slide-from-left', 'slide-from-right');
+      void el.offsetWidth;
+      el.classList.add(animClass);
+    });
+  }
+
+  function showGroupStartingAt(newStartIndex, direction = 'next') {
     startIndex = ((newStartIndex % total) + total) % total;
     const visibleIndices = getVisibleIndices(startIndex);
+    const circleAnimClass = direction === 'prev' ? 'slide-from-left' : 'slide-from-right';
 
     cards.forEach((card) => {
-      card.classList.remove('is-active', 'stagger-1', 'stagger-2');
+      card.classList.remove('is-active', 'stagger-1', 'stagger-2', 'slide-dir-prev');
     });
 
     visibleIndices.forEach((cardIdx, pos) => {
       const card = cards[cardIdx];
+      void card.offsetWidth;
       card.classList.add('is-active');
+      if (direction === 'prev') card.classList.add('slide-dir-prev');
       if (pos === 1) card.classList.add('stagger-1');
       if (pos === 2) card.classList.add('stagger-2');
     });
 
     avatarButtons.forEach((btn, idx) => {
+      btn.classList.remove('slide-from-left', 'slide-from-right');
       if (visibleIndices.includes(idx)) {
         btn.classList.remove('hidden');
         btn.classList.add('flex');
+        void btn.offsetWidth;
+        btn.classList.add(circleAnimClass);
       } else {
         btn.classList.add('hidden');
         btn.classList.remove('flex');
@@ -1075,7 +1153,7 @@ function initFriendsCarousel() {
   }
 
   // Funções do Modal de Foto Ampliada + Mensagem Completa do Amigo
-  function updateFriendModalContent(idx) {
+  function updateFriendModalContent(idx, direction = null) {
     currentModalFriendIdx = ((idx % total) + total) % total;
     const friend = friendsData[currentModalFriendIdx];
 
@@ -1095,11 +1173,13 @@ function initFriendsCarousel() {
     if (friendModalCounter) {
       friendModalCounter.textContent = `${currentModalFriendIdx + 1} / ${total}`;
     }
+
+    triggerFriendModalAnim(direction);
   }
 
   function openFriendModal(idx) {
     if (!friendModal) return;
-    updateFriendModalContent(idx);
+    updateFriendModalContent(idx, null);
     friendModal.classList.add('is-open');
     friendModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -1115,11 +1195,11 @@ function initFriendsCarousel() {
   closeFriendModalBtn?.addEventListener('click', closeFriendModal);
 
   prevFriendModalBtn?.addEventListener('click', () => {
-    updateFriendModalContent(currentModalFriendIdx - 1);
+    updateFriendModalContent(currentModalFriendIdx - 1, 'prev');
   });
 
   nextFriendModalBtn?.addEventListener('click', () => {
-    updateFriendModalContent(currentModalFriendIdx + 1);
+    updateFriendModalContent(currentModalFriendIdx + 1, 'next');
   });
 
   friendModal?.addEventListener('click', (e) => {
@@ -1144,9 +1224,9 @@ function initFriendsCarousel() {
       const diffX = modalTouchStartX - e.changedTouches[0].screenX;
       if (Math.abs(diffX) > 45) {
         if (diffX > 0) {
-          updateFriendModalContent(currentModalFriendIdx + 1);
+          updateFriendModalContent(currentModalFriendIdx + 1, 'next');
         } else {
-          updateFriendModalContent(currentModalFriendIdx - 1);
+          updateFriendModalContent(currentModalFriendIdx - 1, 'prev');
         }
       }
     },
@@ -1156,11 +1236,11 @@ function initFriendsCarousel() {
   document.addEventListener('keydown', (e) => {
     if (!friendModal || !friendModal.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeFriendModal();
-    if (e.key === 'ArrowLeft') updateFriendModalContent(currentModalFriendIdx - 1);
-    if (e.key === 'ArrowRight') updateFriendModalContent(currentModalFriendIdx + 1);
+    if (e.key === 'ArrowLeft') updateFriendModalContent(currentModalFriendIdx - 1, 'prev');
+    if (e.key === 'ArrowRight') updateFriendModalContent(currentModalFriendIdx + 1, 'next');
   });
 
-  // Timer de rotação automática de 3 em 3
+  // Timer de rotação automática de 3 em 3 com deslize para o lado
   setInterval(() => {
     if (
       !isAutoPlaying ||
@@ -1179,27 +1259,47 @@ function initFriendsCarousel() {
     }
 
     if (elapsedMs >= ROTATION_DURATION_MS) {
-      showGroupStartingAt(startIndex + CARDS_PER_VIEW);
+      showGroupStartingAt(startIndex + CARDS_PER_VIEW, 'next');
     }
   }, TICK_MS);
 
-  prevCircleGroupBtn.addEventListener('click', () => showGroupStartingAt(startIndex - CARDS_PER_VIEW));
-  nextCircleGroupBtn.addEventListener('click', () => showGroupStartingAt(startIndex + CARDS_PER_VIEW));
-  prevBtn?.addEventListener('click', () => showGroupStartingAt(startIndex - CARDS_PER_VIEW));
-  nextBtn?.addEventListener('click', () => showGroupStartingAt(startIndex + CARDS_PER_VIEW));
+  prevCircleGroupBtn.addEventListener('click', () => showGroupStartingAt(startIndex - CARDS_PER_VIEW, 'prev'));
+  nextCircleGroupBtn.addEventListener('click', () => showGroupStartingAt(startIndex + CARDS_PER_VIEW, 'next'));
+  prevBtn?.addEventListener('click', () => showGroupStartingAt(startIndex - CARDS_PER_VIEW, 'prev'));
+  nextBtn?.addEventListener('click', () => showGroupStartingAt(startIndex + CARDS_PER_VIEW, 'next'));
 
   autoplayToggleBtn?.addEventListener('click', () => {
     isAutoPlaying = !isAutoPlaying;
     autoplayToggleBtn.textContent = isAutoPlaying ? 'Pausar' : 'Girar';
   });
 
-  track.addEventListener('touchstart', () => {
-    isPausedByTouch = true;
-  }, { passive: true });
+  // Suporte a swipe lateral direto nos 3 cards de amigos no celular
+  let trackTouchStartX = 0;
+  track.addEventListener(
+    'touchstart',
+    (e) => {
+      isPausedByTouch = true;
+      trackTouchStartX = e.changedTouches[0].screenX;
+    },
+    { passive: true }
+  );
 
-  track.addEventListener('touchend', () => {
-    isPausedByTouch = false;
-  }, { passive: true });
+  track.addEventListener(
+    'touchend',
+    (e) => {
+      isPausedByTouch = false;
+      if (isGridMode) return;
+      const diffX = trackTouchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diffX) > 45) {
+        if (diffX > 0) {
+          showGroupStartingAt(startIndex + CARDS_PER_VIEW, 'next');
+        } else {
+          showGroupStartingAt(startIndex - CARDS_PER_VIEW, 'prev');
+        }
+      }
+    },
+    { passive: true }
+  );
 
   // Clique em qualquer card de mensagem abre o modal com a foto ampliada (exceto se clicar apenas no botão Amei)
   cards.forEach((card, idx) => {

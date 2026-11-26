@@ -84,35 +84,32 @@ const RETROSPECTIVA_19_ANOS = [
     subtitulo: '2008 ',
     titulo: 'O amor que permanece',
     foto: './assets/img/2008.jpeg',
-    texto: '"primeiro aninho de vida da Isa, papai e mamãe estavam super felizes", foi a frase que a sua mãe me disse quando me mandou essa foto, eles estavam felizes por ver você crescendo, não é nada diferente de agora, eles estão muito felizes por presenciar esse momento novamente, ver a mulher que você se tornou deixa eles muito orgulhosos, e estranho pensar que nesse mesmo ano eu também estava nascendo, apenas alguns anos atras de te conhcer.'
+    texto: '"Primeiro aninho de vida da Isa, papai e mamãe estavam super felizes". Foi a frase que a sua mãe me disse quando me mandou essa foto. Eles estavam felizes por ver você crescendo, não é nada diferente de agora, eles estão muito felizes por presenciar esse momento novamente. Poder ver a mulher que você se tornou deixa eles muito orgulhosos. É estranho pensar que nesse mesmo ano eu também estava nascendo, apenas alguns anos antes de te conhecer.'
   },
   {
     ano: '2 Anos • 2009',
     subtitulo: '2009 ',
     titulo: 'Fofoqueira desde sempre',
     foto: './assets/img/2009.jpeg',
-    texto: 'acho que não veio de agora seu amor por livro, desde sempre você sempre mostrou em ser curiosa e esforçada para ir atras de informação que você queira (ama fofoca).'
-  },
+    texto: 'Acho que seu amor por livro não veio de agora. Desde sempre você mostrou ser curiosa e esforçada para ir atrás da informação que queria (ama fofoca).'  },
   {
     ano: '3 Anos • 2010',
     subtitulo: '2010 ',
     titulo: 'DIDI tomando banho???',
     foto: './assets/img/2010.jpeg',
-    texto: 'eu tinha em minha mente que 2010 era logo ali, é estranho ver que já já vai fazer duas décadas, é estranho ver que naquela época você tinha 2/3 anos e hoje você esta fazendo 19, sera que a Didi daquela época imaginava como era virar adulto.'
-  },
+    texto: 'Eu pensava que 2010 era logo ali, é estranho saber que já já vai fazer duas décadas. É estranho saber que naquela época você tinha 2/3 anos e hoje você está fazendo 19. Será que a Didi daquela época imaginava como é virar adulto?'  },
   {
     ano: '4 Anos • 2011',
     subtitulo: '2011 ',
     titulo: 'A verdadeira princesa não espera o conto de fadas acontecer: ela faz acontecer',
     foto: './assets/img/2011.jpeg',
-    texto: 'você e suas bonecas, pela as coisas que me falaram, você não largava elas por nada, sonhava em ser uma princesa da Disney, isso tornava tudo tão fofo, anos se passa e você ainda vai ser essa eterna princesa. '
-  },
+    texto: 'Você e suas bonecas, pelo o que me falaram, você não largava elas por nada. Sonhava em ser uma princesa da Disney.  Anos se passaram e você ainda vai ser essa eterna princesa.'  },
   {
     ano: '5 Anos • 2012',
     subtitulo: '2012 Samia',
     titulo: 'Eu estou totalmente dentro',
     foto: './assets/img/2012.jpeg',
-    texto: 'Aos 5 anos, cada festinha e apresentação era motivo de orgulho. Seu sorriso banguela e espontâneo deixava qualquer dia mais feliz.'
+    texto: 'provavelmente estávamos em uma das milhões de festas de aniversário ou churrascos da nossa família. nessa época, a gente ainda não era tão próxima e nem se via com tanta frequência, mas, conforme fomos crescendo, acabamos nos aproximando. lembro dos dias em que dormia na sua casa, dos nossos cafés da manhã naqueles copos de personagens cheios de brilho e da boneca da Aurora que você me trouxe da Disney. depois vieram nossas conversas intermináveis sobre Marvel, filmes e séries, e até o funko pop do Groot, que você me deu e que tenho até hoje. também lembro das várias viagens que fizemos juntas, principalmente a de Tupã, que foi uma das minhas favoritas 🩷'
   },
   {
     ano: '6 Anos • 2013',
@@ -126,15 +123,14 @@ const RETROSPECTIVA_19_ANOS = [
     subtitulo: '2014 - Narita',
     titulo: 'Um amigo de verdade te ajuda a voar quando você acha que não consegue.',
     foto: './assets/img/2014.jpeg',
-    texto: 'Amiga lembro do dia que nos conhecemos, no primeiro aninho da escola em 2014, eu estava chorando por que tava com medo da escola grande e você veio falar comigo e viramos amigas dês de então, você sempre foi uma pessoa com um coração maravilhoso, gentil e atenciosa, sempre esteve ao meu lado e espero ter a alegria de estar ao seu lado em todas as outras fases da nossa vida, te amo'
-  },
+    texto: 'Amiga lembro do dia que nos conhecemos, no primeiro aninho da escola em 2014, eu estava chorando por que tava com medo da escola grande e você veio falar comigo e viramos amigas. Desde então, você sempre foi uma pessoa com um coração maravilhoso, gentil e atenciosa, sempre esteve ao meu lado e espero ter a alegria de estar ao seu lado em todas as outras fases da nossa vida, te amo.'
+ },
   {
     ano: '8 Anos • 2015',
     subtitulo: '2015 ',
     titulo: 'Existe uma princesa em cada garota.',
     foto: './assets/img/2015.jpeg',
-    texto: 'Essa sua foto de 2015, você parecia estar bem feliz, e esse mesmo sorriso ainda encanta as pessoas hoje em dia, o seu jeito se ser (bobinha) aparentemente sempre foi o mesmo.'
-  },
+    texto: 'Nessa sua foto de 2015  você parecia estar bem feliz. Esse mesmo sorriso ainda encanta as pessoas hoje em dia, o seu jeito de ser (bobinha) aparentemente sempre foi o mesmo.'  },
   {
     ano: '9 Anos • 2016',
     subtitulo: '2016 Marcela',
@@ -154,28 +150,40 @@ const RETROSPECTIVA_19_ANOS = [
     subtitulo: '2018 - Vó Rose',
     titulo: 'Ohana quer dizer família. Família quer dizer nunca abandonar ou esquecer',
     foto: './assets/img/2018.jpeg',
-    texto: 'Que foto linda cheia de amor e carinho !Que alegria fazer parte da sua história e guardar momentos tão especiais ao seu lado. Que a vida seja generosa com você, que nunca faltem motivos pra sorrir, coragem para realizar seus sonhos e amor para iluminar seus caminhos. Feliz 19 anos Isa! Que Deus abençoe cada passo da sua caminhada. Com todo amor da vó Rose. Parabéns e um feliz aniversário!'
+    texto: 'Que foto linda cheia de amor e carinho !Que alegria fazer parte da sua história e guardar momentos tão especiais ao seu lado. Que a vida seja generosa com você, que nunca faltem motivos pra sorrir, coragem para realizar seus sonhos e amor para iluminar seus caminhos. Feliz 19 anos Isa! Que Deus abençoe cada passo da sua caminhada. Com todo amor da vó Rose. Parabéns e um feliz aniversário!',
+    slides: [
+      {
+        foto: './assets/img/2018.jpeg',
+        subtitulo: '2018 - Vó Rose',
+        titulo: 'Ohana quer dizer família. Família quer dizer nunca abandonar ou esquecer',
+        texto: 'Que foto linda cheia de amor e carinho !Que alegria fazer parte da sua história e guardar momentos tão especiais ao seu lado. Que a vida seja generosa com você, que nunca faltem motivos pra sorrir, coragem para realizar seus sonhos e amor para iluminar seus caminhos. Feliz 19 anos Isa! Que Deus abençoe cada passo da sua caminhada. Com todo amor da vó Rose. Parabéns e um feliz aniversário!'
+      },
+      {
+        foto: './assets/img/2018-2.jpeg',
+        subtitulo: '2018 Vó Rosinha',
+        titulo: 'Ohana quer dizer família. Família quer dizer nunca abandonar ou esquecer',
+        texto: 'Quanto orgulho sinto  de vc minha neta linda com um coração maravilho. Continue assim e que Deus te abençoe no seu novo ciclo Parabéns 💖💗💝😘✨'
+      }
+    ]
   },
   {
     ano: '12 Anos • 2019',
     subtitulo: '2019 ',
     titulo: 'Segurem as memórias, elas vão segurar vocês.',
     foto: './assets/img/2019.jpeg',
-    texto: 'já se passou 7 anos dessa foto, em 2019 foi o ultimo ano antes da pandemia, e analisando todas as fotos e historias que me falaram, você aproveitou bastante, e não deveria nunca parar de aproveitar.'  },
+    texto: 'Já se passou 7 anos desde essa foto. Em 2019, foi o último ano antes da pandemia, e analisando todas as fotos e histórias que me falaram você aproveitou bastante, e não deveria nunca parar de aproveitar.'  },
   {
     ano: '13 Anos • 2020',
     subtitulo: '2020 ',
     titulo: 'Queria ter te conhecido antes.',
     foto: './assets/img/2020.jpeg',
-    texto: 'O meu 2020 foi bem conturbado, tudo o que eu queria naquela época era uma amizade verdadeira e depois de anos eu encontrei você, a sua amizade mudaria muitas pessoas, todo mundo precisa ter uma isabela degaspare do seu lado, as pessoas seriam mais felizes.'
-  },
+    texto: 'O meu 2020 foi bem conturbado, tudo o que eu queria naquela época era uma amizade verdadeira, e depois de anos eu encontrei você. A sua amizade mudaria muitas pessoas, todo mundo precisa ter uma Isabela Degaspare ao seu lado, as pessoas seriam mais felizes.'  },
   {
     ano: '14 Anos • 2021',
     subtitulo: '2021 ',
     titulo: 'A aventura está lá fora!',
     foto: './assets/img/2021.jpeg',
-    texto: 'A isabela de 2021 eu não conhecia, mas eu tenho certeza que se tivesse robux infinito e um kindle naquela época, você iria nunca sair daquela quarentena (talvez seria isso até hoje). '
-  },
+    texto: 'Eu não conhecia a Isabela de 2021, mas eu tenho certeza que se tivesse robux infinito e um kindle você nunca sairia daquela quarentena (talvez seria isso até hoje).'  },
   {
     ano: '15 Anos • 2022',
     subtitulo: '2022 - seu grupo de amigos favorito',
@@ -187,8 +195,7 @@ const RETROSPECTIVA_19_ANOS = [
         foto: './assets/img/2022.jpeg',
         subtitulo: '2022 - Riccardo',
         titulo: 'Eu queria que houvesse um jeito de saber que estamos nos bons velhos tempos antes mesmo de eles acabarem.',
-        texto: 'Então em 2022 eu e a Isa a gente se aproximou mais né, porque quando a gente éramos menores crianças a gente tipo assim meio que brigar, mas aí depois a gente tipo assim consolidou um grupinho eu Marina e o Paulo e a Isa e a gente teve momentos excelente né, momentos gostosos que marcaram bastante e eu amo muito.'
-      },
+        texto: 'Então em 2022 eu e a Isa a gente se aproximou mais né porque quando nós éramos menores a gente tipo assim meio que brigava bastante kkkkkk mas aí depois a gente tipo assim consolidou um grupinho eu Marina o Paulo e a Isa e nos tivemos  momentos excelentes e muuuito gostosos que marcaram bastante, amo muito'      },
       {
         foto: './assets/img/2022-2.jpeg',
         subtitulo: '2022 - Paulo',
